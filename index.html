@@ -9,14 +9,19 @@
         width:100vw;
       }
       h1 {
-        text-align: center;
         font-size: 5em;
-        position: absolute;
         top: 20%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+      }
+      p {
+        font-size: 2em;
+        width:80%;
+        top: 30%;
       }
       #my_file{
+        font-size: 3em;
+        top: 60%;
+      }
+      .abs{
         text-align: center;
         font-size: 5em;
         position: absolute;
@@ -30,8 +35,19 @@
   </head>
 
   <body>
-    <h1>Import a file</h1>
-    <input type="file" id="my_file" accept="image/*"/>
+    <h1 class="abs">Import a file</h1>
+    <p class="abs">Try to upload a file on Snapchat Browser on Android/iOS<br><br><b>User agent : </b><span id="useragent"></span></p>
+    <input class="abs" type="file" id="my_file" accept="image/*"/>
   </body>
 
+  <script>
+    document.querySelector('#useragent').textContent = Navigator.userAgent;
+    const input = document.querySelector('#my_file');
+
+    input.addEventListener('change', (event) => {
+      alert('Success uploading file. User agent : \n\n' + Navigator.userAgent);
+    });
+    
+  </script>
+  
 </html>
